@@ -1,0 +1,53 @@
+﻿<Window x:Class="WPFCore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFCore"
+        mc:Ignorable="d" FontSize="16"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext >
+        <local:MainViewModel/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel>
+            <DataGrid ItemsSource="{Binding PillenListe}" SelectedItem="{Binding SelectedPille}" />
+        </StackPanel>
+        <TextBox Name="tb1"/>
+        <TextBox Text="{Binding ElementName=tb1,Path=Text}"
+                 Background="{Binding ElementName=tb1,Path=Text}"/>
+
+        <Slider Name="sl1"/>
+        <TextBlock Text="{Binding ElementName=sl1,Path=Value,StringFormat=c}"/>
+
+        <Label Name="myLabel">Hallo...</Label>
+        <Button Width="100" Height="50" Content="Klick mich!"
+                Click="MachDinge" Background="Aqua"></Button>
+        <Button >
+            <Button.Content>
+                <StackPanel>
+
+                    <Calendar></Calendar>
+
+                    <Expander>
+                        <ComboBox>
+                            <ComboBoxItem>
+                                <Button>klick mir!</Button>
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </Expander>
+                </StackPanel>
+            </Button.Content>
+            <Button.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="LimeGreen"/>
+                    <GradientStop Color="Pink" Offset="0.5"/>
+                    <GradientStop Color="Firebrick" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        
+        
+       
+    </StackPanel>
+</Window>
